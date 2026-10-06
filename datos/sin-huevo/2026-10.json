@@ -1,0 +1,669 @@
+{
+  "mes": "2026-10",
+  "titulo": "Octubre 2026",
+  "dias": [
+    {
+      "fecha": "2026-10-01",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Garbanzos guisados con calabaza",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Cinta lomo plancha con lechuga y zanahoria",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 758
+    },
+    {
+      "fecha": "2026-10-02",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Macarrones sin huevoal pesto",
+        "alergenos": [
+          "leche",
+          "frutos secos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Palometa al horno con lechuga y tomate",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 592
+    },
+    {
+      "fecha": "2026-10-05",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Brócoli rehogado con ajo y pimentón",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Espaguetis boloñesa sin huevo con soja texturizada",
+        "alergenos": [
+          "soja"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 613
+    },
+    {
+      "fecha": "2026-10-06",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz blanco con salsa de tomate casero",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Merluza a la gallega con patata cocida",
+        "alergenos": [
+          "pescado"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 682
+    },
+    {
+      "fecha": "2026-10-07",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Patatas guisadas con magro",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Filete de pollo a la plancha con tomate y ensalada",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 696
+    },
+    {
+      "fecha": "2026-10-08",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Crema de zanahoria ecológica",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Bacalao horno con ensalada de lechuga y tomate",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Yogur natural",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 563
+    },
+    {
+      "fecha": "2026-10-09",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Lentejas guisadas con verduras",
+        "alergenos": [
+          "gluten"
+        ]
+      },
+      "segundo": {
+        "nombre": "Lacón horno con ensalada lechuga y tomate",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 701
+    },
+    {
+      "fecha": "2026-10-12",
+      "festivo": true,
+      "nota": "FIESTA",
+      "primero": null,
+      "segundo": null,
+      "otros_platos": [],
+      "postre": null,
+      "pan": null,
+      "kcal": 0
+    },
+    {
+      "fecha": "2026-10-13",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz blanco con salsa de tomate casero",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Merluza al horno con ensalada lechuga, tomate y maíz",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Queso fresco",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 566
+    },
+    {
+      "fecha": "2026-10-14",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Sopa de cocido con fideos sin huevo",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Cocido, garbanzos, repollo, ternera, zanahoria, patata",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 598
+    },
+    {
+      "fecha": "2026-10-15",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Crema de verduras ecológicas",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Filete de pavo a la plancha con ensalada de lechuga y maíz",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 568
+    },
+    {
+      "fecha": "2026-10-16",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías pintas guisadas con verduras",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Abadejo horno con ensalada de lechuga y manzana",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 585
+    },
+    {
+      "fecha": "2026-10-19",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Coliflor rehogada con ajo y pimentón",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Cinta lomo plancha con lechuga y cebolla",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 674
+    },
+    {
+      "fecha": "2026-10-20",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías blancas guisadas con chorizo",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Palometa al horno con tomate y ensalada",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 720
+    },
+    {
+      "fecha": "2026-10-21",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Macarrones integrales gratinados con tomate, queso",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "segundo": {
+        "nombre": "Salteado de verduas con soja texturizada",
+        "alergenos": [
+          "soja",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Yogur natural",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 826
+    },
+    {
+      "fecha": "2026-10-22",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Lentejas guisadas con verduras",
+        "alergenos": [
+          "gluten"
+        ]
+      },
+      "segundo": {
+        "nombre": "Chuleta de cerdo a la plancha con lechuga y tomate",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 773
+    },
+    {
+      "fecha": "2026-10-23",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz milanesa",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Merluza al horno con ensalada lechuga, zanahoria",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 627
+    },
+    {
+      "fecha": "2026-10-26",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Brócoli rehogado con ajo y pimentón",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Espaguetis sin huevo boloñesa con soja texturizada",
+        "alergenos": [
+          "soja"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 691
+    },
+    {
+      "fecha": "2026-10-27",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías pintas guisadas con verduras",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Cinta de lomo a la plancha con ensalada de lechuga y maíz",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 740
+    },
+    {
+      "fecha": "2026-10-28",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz integral rehogado con magro",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Salmón horno con salsa de puerros y ensalada",
+        "alergenos": [
+          "pescado"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Queso fresco",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 694
+    },
+    {
+      "fecha": "2026-10-29",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Sopa de cocido con fideos sin huevo",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Cocido completo, morcillo, chorizo, patata, repollo",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 612
+    },
+    {
+      "fecha": "2026-10-30",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Crema de calabaza ecológica",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Pollo guisado con champiñón",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 618
+    }
+  ],
+  "pdf_sha256": "17ec4a502cce99af3fe4cde2b0107d9c89f8ee39d77f24e0b9f59aa8709f2000"
+}

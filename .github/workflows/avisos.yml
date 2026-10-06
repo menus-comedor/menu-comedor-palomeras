@@ -1,0 +1,37 @@
+# Avisos por Telegram:
+#   - domingo por la tarde: el menú de toda la semana
+#   - de lunes a jueves por la tarde: lo que comen mañana y qué evitar en la cena
+name: Avisos por Telegram
+
+on:
+  schedule:
+    - cron: "0 16 * * 0-4" # 16:00 UTC (18:00 en Madrid en verano, 17:00 en invierno), de domingo a jueves
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "Qué aviso enviar"
+        type: choice
+        default: auto
+        options: [auto, semana, manana, hoy]
+
+permissions:
+  contents: read # este workflow solo lee el repositorio
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    env:
+      MENU_AVISOS: ${{ vars.MENU_AVISOS }}
+      URL_WEB: ${{ vars.URL_WEB || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Enviar el aviso
+        run: python -m comedor avisar ${{ inputs.modo || 'auto' }}
+        env: # los secretos solo llegan a este paso
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

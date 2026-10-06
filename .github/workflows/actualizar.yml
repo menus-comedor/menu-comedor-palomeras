@@ -1,0 +1,78 @@
+# Descarga el PDF del colegio, lo lee, guarda los datos en datos/
+# y, si ha cambiado algo, publica la web y el calendario en GitHub Pages.
+#
+# El colegio cambia el menú el último día de cada mes ("salvo algún retraso"),
+# así que solo miramos a diario alrededor del cambio de mes, y una vez por
+# semana el resto del mes por si corrigen algo.
+name: Actualizar menú
+
+on:
+  schedule:
+    # Hora en UTC: 5:30 UTC = 7:30 en Madrid en verano, 6:30 en invierno.
+    - cron: "30 5 27-31,1-7 * *" # a diario del 27 al 7 (cambio de mes y posibles retrasos)
+    - cron: "30 5 * * 1" # y todos los lunes
+  workflow_dispatch: # botón "Run workflow" en la pestaña Actions
+  push:
+    branches: [main]
+    paths: ["comedor/**", "web/**", "datos/**", "requirements.txt", ".github/workflows/actualizar.yml"]
+
+permissions:
+  contents: write # para guardar datos/ en el repositorio
+  pages: write
+  id-token: write
+
+concurrency:
+  group: actualizar
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.desplegar.outputs.page_url }}
+    env:
+      MENU_AVISOS: ${{ vars.MENU_AVISOS }}
+      NOMBRE_CALENDARIO: ${{ vars.NOMBRE_CALENDARIO }}
+      TELEGRAM_CANAL: ${{ vars.TELEGRAM_CANAL }}
+      URL_WEB: ${{ vars.URL_WEB || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+
+      - name: Descargar y leer el menú
+        run: python -m comedor actualizar
+        env: # los secretos solo llegan a este paso
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - name: Guardar los datos en el repositorio
+        id: guardar
+        run: |
+          git add datos/
+          if git diff --cached --quiet; then
+            echo "No hay cambios que guardar."
+            echo "cambiado=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "cambiado=true" >> "$GITHUB_OUTPUT"
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Menú actualizado $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      # Solo publicamos si el menú ha cambiado (o si se lanza a mano o al cambiar el código).
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+        if: steps.guardar.outputs.cambiado == 'true' || github.event_name != 'schedule'
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        if: steps.guardar.outputs.cambiado == 'true' || github.event_name != 'schedule'
+        with:
+          path: sitio
+      - id: desplegar
+        if: steps.guardar.outputs.cambiado == 'true' || github.event_name != 'schedule'
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

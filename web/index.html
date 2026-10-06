@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menú del comedor</title>
+<meta name="theme-color" content="#2f6f4f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽</text></svg>">
+<style>
+  :root {
+    --fondo: #f6f5f1; --tarjeta: #fff; --texto: #1f2421; --suave: #66706a;
+    --borde: #e3e1da; --acento: #2f6f4f; --acento-suave: #e4efe8; --hoy: #fff6dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fondo: #141816; --tarjeta: #1d2320; --texto: #e8ece9; --suave: #9aa59f;
+      --borde: #2c3430; --acento: #7cc39c; --acento-suave: #24352c; --hoy: #33301f;
+    }
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    margin: 0; background: var(--fondo); color: var(--texto);
+    font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; color: var(--suave); margin: 28px 0 10px; }
+  .sub { color: var(--suave); margin: 0 0 16px; font-size: .9rem; }
+  .selector { display: block; margin: 0 0 12px; font-size: .85rem; color: var(--suave); }
+  .selector select {
+    display: block; width: 100%; margin-top: 4px; padding: 10px 12px; font: inherit; font-size: 1rem;
+    color: var(--texto); background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 10px;
+  }
+  .alerta {
+    margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; font-size: .9rem;
+    background: var(--hoy); border: 1px solid var(--borde);
+  }
+  .botones { display: flex; gap: 8px; flex-wrap: wrap; }
+  .boton {
+    display: inline-block; padding: 8px 14px; border-radius: 999px; text-decoration: none;
+    background: var(--acento-suave); color: var(--acento); font-weight: 600; font-size: .9rem;
+  }
+  .dia {
+    background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 10px;
+  }
+  .dia.hoy { background: var(--hoy); }
+  .fecha { font-weight: 700; display: flex; justify-content: space-between; gap: 8px; }
+  .fecha small { color: var(--suave); font-weight: 500; }
+  ul { margin: 6px 0 0; padding-left: 18px; }
+  li.postre { color: var(--suave); }
+  .cats { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .cat { font-size: .8rem; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--borde); }
+  .festivo { color: var(--suave); margin-top: 4px; }
+  .aviso { color: var(--suave); }
+  footer { margin-top: 32px; font-size: .8rem; color: var(--suave); }
+  a { color: var(--acento); }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="titulo">🍽 Menú del comedor</h1>
+  <p class="sub">Para la cena, evita lo que comen ese día.</p>
+  <label class="selector">Menú
+    <select id="menu"></select>
+  </label>
+  <p class="alerta" id="alerta" hidden>
+    ⚠️ Este texto se genera automáticamente y puede tener errores. Si hay alergias,
+    comprueba siempre el <a id="alerta-pdf" href="#">PDF oficial del colegio</a>.
+  </p>
+  <div class="botones">
+    <a class="boton" id="suscribir" href="menu.ics">📅 Añadir al calendario</a>
+    <a class="boton" id="telegram" href="#" hidden>📲 Avisos en Telegram</a>
+    <a class="boton" id="pdf" href="https://palomerasbajas.org/wp/menus-mes-en-curso/">PDF original</a>
+  </div>
+
+  <h2>Lo que queda del mes</h2>
+  <div id="dias"></div>
+  <div id="siguiente"></div>
+
+  <footer>
+    Generado automáticamente a partir del PDF del colegio. Si algo no cuadra, el PDF manda.
+  </footer>
+</main>
+<script>
+const EMOJI = { pescado: "🐟", marisco: "🦐", huevo: "🥚", carne: "🥩", legumbres: "🫘",
+                pasta: "🍝", arroz: "🍚", patata: "🥔" };
+const fmt = new Intl.DateTimeFormat("es-ES", { weekday: "long", day: "numeric", month: "long" });
+const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const sumar = (d, n) => { const r = new Date(d); r.setDate(r.getDate() + n); return r; };
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function tarjeta(d, hoy, manana) {
+  const fecha = new Date(d.fecha + "T12:00");
+  const etiqueta = d.fecha === hoy ? "<small>hoy</small>" : d.fecha === manana ? "<small>mañana</small>" : "";
+  if (d.festivo) {
+    return `<div class="dia"><div class="fecha">${fmt.format(fecha)}${etiqueta}</div>
+            <div class="festivo">🎉 ${esc(d.nota || "Sin comedor")}</div></div>`;
+  }
+  const platos = [d.primero, d.segundo, ...d.otros_platos].filter(Boolean)
+    .map(p => `<li>${esc(p.nombre)}</li>`).join("");
+  const postre = d.postre ? `<li class="postre">${esc(d.postre.nombre)}</li>` : "";
+  const cats = d.categorias.map(c => `<span class="cat">${EMOJI[c] || ""} ${c}</span>`).join("");
+  return `<div class="dia${d.fecha === hoy ? " hoy" : ""}">
+            <div class="fecha">${fmt.format(fecha)}${etiqueta}</div>
+            <ul>${platos}${postre}</ul>
+            ${cats ? `<div class="cats">${cats}</div>` : ""}
+          </div>`;
+}
+
+const $ = id => document.getElementById(id);
+const nombreMes = new Intl.DateTimeFormat("es-ES", { month: "long" });
+
+// Recordamos el último menú elegido en este móvil (si el navegador lo permite).
+const leerElegido = () => { try { return localStorage.getItem("menu"); } catch { return null; } };
+const guardarElegido = c => { try { localStorage.setItem("menu", c); } catch {} };
+
+function pintarDias(dias) {
+  const ahora = new Date();
+  const hoy = iso(ahora);
+  const manana = iso(sumar(ahora, 1));
+  const mes = hoy.slice(0, 7);
+  const lista = ds => ds.map(d => tarjeta(d, hoy, manana)).join("");
+
+  const quedan = dias.filter(d => d.fecha >= hoy && d.fecha.startsWith(mes));
+  $("dias").innerHTML = quedan.length
+    ? lista(quedan)
+    : '<p class="aviso">Ya no queda comedor este mes.</p>';
+
+  // A final de mes, si el colegio ya ha publicado el menú siguiente, lo mostramos debajo.
+  const siguientes = dias.filter(d => d.fecha > hoy && !d.fecha.startsWith(mes));
+  $("siguiente").innerHTML = siguientes.length
+    ? `<h2>${nombreMes.format(new Date(siguientes[0].fecha + "T12:00"))}</h2>${lista(siguientes)}`
+    : "";
+}
+
+function elegir(menu, telegram) {
+  // Enlace webcal:// para que el iPhone se suscriba (y se actualice solo).
+  const ics = new URL(`${menu.clave}.ics`, location.href);
+  $("suscribir").href = ics.protocol === "https:" ? "webcal://" + ics.host + ics.pathname : ics.href;
+  $("pdf").href = menu.pdf;
+  $("alerta-pdf").href = menu.pdf;
+  $("alerta").hidden = menu.clave === "orientativo";
+  // Los avisos de Telegram solo existen para uno de los menús.
+  $("telegram").hidden = !(telegram && menu.avisos);
+  $("telegram").href = telegram || "#";
+
+  const url = new URL(location.href);
+  if (menu.clave === "orientativo") url.searchParams.delete("menu");
+  else url.searchParams.set("menu", menu.clave);
+  history.replaceState(null, "", url);
+  guardarElegido(menu.clave);
+
+  $("dias").innerHTML = '<p class="aviso">Cargando…</p>';
+  $("siguiente").innerHTML = "";
+  fetch(`${menu.clave}.json`).then(r => r.json()).then(({ dias }) => pintarDias(dias)).catch(() => {
+    $("dias").innerHTML = '<p class="aviso">No se ha podido cargar el menú.</p>';
+  });
+}
+
+fetch("menus.json").then(r => r.json()).then(({ nombre, telegram, menus }) => {
+  $("titulo").textContent = "🍽 " + nombre;
+  $("menu").innerHTML = menus.map(m => `<option value="${m.clave}">${esc(m.nombre)}</option>`).join("");
+  const pedido = new URLSearchParams(location.search).get("menu") || leerElegido();
+  const inicial = menus.find(m => m.clave === pedido) || menus[0];
+  $("menu").value = inicial.clave;
+  $("menu").addEventListener("change", e => elegir(menus.find(m => m.clave === e.target.value), telegram));
+  elegir(inicial, telegram);
+}).catch(() => {
+  $("dias").innerHTML = '<p class="aviso">No se ha podido cargar el menú.</p>';
+});
+</script>
+</body>
+</html>
