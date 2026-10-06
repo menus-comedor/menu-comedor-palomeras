@@ -16,6 +16,10 @@ on:
         type: choice
         default: auto
         options: [auto, semana, manana, hoy]
+      fecha:
+        description: "Hacer como si hoy fuera esta fecha (AAAA-MM-DD). Vacío = hoy"
+        required: false
+        default: ""
 
 permissions:
   contents: read # este workflow solo lee el repositorio
@@ -34,7 +38,9 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Enviar el aviso
-        run: python -m comedor avisar ${{ inputs.modo || 'auto' }}
+        run: python -m comedor avisar "$MODO" ${FECHA:+--fecha "$FECHA"}
         env: # los secretos solo llegan a este paso
+          MODO: ${{ inputs.modo || 'auto' }}
+          FECHA: ${{ inputs.fecha }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
