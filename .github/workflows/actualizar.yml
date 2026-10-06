@@ -11,9 +11,9 @@ name: Actualizar menú
 
 on:
   schedule:
-    # Hora en UTC: 5:30 UTC = 7:30 en Madrid en verano, 6:30 en invierno.
-    - cron: "30 5 27-31,1-7 * *" # a diario del 27 al 7 (cambio de mes y posibles retrasos)
-    - cron: "30 5 * * 1" # y todos los lunes
+    # Hora en UTC: 5:37 UTC = 7:37 en Madrid en verano, 6:37 en invierno (evitamos las horas en punto).
+    - cron: "37 5 27-31,1-7 * *" # a diario del 27 al 7 (cambio de mes y posibles retrasos)
+    - cron: "37 5 * * 1" # y todos los lunes
   workflow_dispatch: # botón "Run workflow" en la pestaña Actions
   push:
     branches: [main]

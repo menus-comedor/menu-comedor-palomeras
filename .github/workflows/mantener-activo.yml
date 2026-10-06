@@ -9,7 +9,7 @@ name: Mantener activo
 
 on:
   schedule:
-    - cron: "0 4 15 * *" # el día 15 de cada mes
+    - cron: "41 4 15 * *" # el día 15 de cada mes (evitamos las horas en punto)
   workflow_dispatch:
     inputs:
       forzar:

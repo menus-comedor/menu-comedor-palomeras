@@ -8,7 +8,9 @@ name: Avisos por Telegram
 
 on:
   schedule:
-    - cron: "0 16 * * 0-4" # 16:00 UTC (18:00 en Madrid en verano, 17:00 en invierno), de domingo a jueves
+    # 16:23 UTC (18:23 en Madrid en verano, 17:23 en invierno), de domingo a jueves.
+    # Evitamos las horas en punto: GitHub va más cargado y puede retrasar o saltarse ejecuciones.
+    - cron: "23 16 * * 0-4"
   workflow_dispatch:
     inputs:
       modo:
