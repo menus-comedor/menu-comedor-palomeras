@@ -1,6 +1,9 @@
 # Avisos por Telegram:
 #   - domingo por la tarde: el menú de toda la semana
 #   - de lunes a jueves por la tarde: lo que comen mañana y qué evitar en la cena
+#
+# Las ejecuciones programadas aparecen a nombre de quien modificó este fichero por última vez.
+# Usa una cuenta dedicada (aquí, menus-comedor-bot) si no quieres que aparezca tu usuario.
 name: Avisos por Telegram
 
 on:

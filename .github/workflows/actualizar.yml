@@ -4,6 +4,9 @@
 # El colegio cambia el menú el último día de cada mes ("salvo algún retraso"),
 # así que solo miramos a diario alrededor del cambio de mes, y una vez por
 # semana el resto del mes por si corrigen algo.
+#
+# Las ejecuciones programadas aparecen a nombre de quien modificó este fichero por última vez.
+# Usa una cuenta dedicada (aquí, menus-comedor-bot) si no quieres que aparezca tu usuario.
 name: Actualizar menú
 
 on:
