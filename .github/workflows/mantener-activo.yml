@@ -1,0 +1,41 @@
+# GitHub desactiva las tareas programadas de los repositorios públicos tras 60 días
+# sin actividad (por ejemplo, en verano, si el colegio no publica menús).
+# Una vez al mes, si no ha habido ningún cambio en los últimos 30 días, guardamos
+# un pequeño cambio para que el repositorio siga "activo".
+#
+# Las ejecuciones programadas aparecen a nombre de quien modificó este fichero por última vez.
+# Usa una cuenta dedicada (aquí, menus-comedor-bot) si no quieres que aparezca tu usuario.
+name: Mantener activo
+
+on:
+  schedule:
+    - cron: "0 4 15 * *" # el día 15 de cada mes
+  workflow_dispatch:
+    inputs:
+      forzar:
+        description: "Guardar el cambio aunque haya habido actividad reciente"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  mantener:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Guardar un cambio si el repositorio lleva tiempo quieto
+        env:
+          FORZAR: ${{ inputs.forzar }}
+        run: |
+          if [ "$FORZAR" != "true" ] && [ -n "$(git log -1 --since='30 days ago' --format=%h)" ]; then
+            echo "Ha habido cambios en los últimos 30 días: no hace falta hacer nada."
+            exit 0
+          fi
+          date -u +%Y-%m-%d > .github/ultima-actividad
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/ultima-actividad
+          git commit -m "Mantener activas las tareas programadas"
+          git push

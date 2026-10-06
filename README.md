@@ -215,8 +215,10 @@ La web se genera en `sitio/`; para verla: `python -m http.server -d sitio` y abr
   nuevo a `tests/pdf/` y una prueba en [`tests/test_parser.py`](tests/test_parser.py).
 - **Un plato sale mal.** Puedes corregirlo a mano en `datos/MENU/AAAA-MM.json` (se respeta hasta que el
   colegio cambie el PDF de ese mes).
-- **Después del verano no llega nada.** GitHub desactiva las tareas programadas de los repositorios
-  públicos tras 60 días sin cambios. En septiembre, entra en **Actions** y vuelve a activarlas.
+- **Las tareas programadas se desactivan.** GitHub las desactiva en los repositorios públicos tras
+  60 días sin cambios. Para evitarlo, el workflow **Mantener activo** guarda un pequeño cambio el día 15
+  de cada mes si no ha habido ninguno en los 30 días anteriores (por ejemplo, en verano). Si aun así
+  pasa, entra en **Actions** y vuelve a activarlas.
 
 ---
 
