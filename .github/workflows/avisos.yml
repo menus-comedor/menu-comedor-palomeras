@@ -22,27 +22,68 @@ on:
         description: "Hacer como si hoy fuera esta fecha (AAAA-MM-DD). Vacío = hoy"
         required: false
         default: ""
+      enviar:
+        description: "Enviar a Telegram (si no, el mensaje solo se muestra en el registro)"
+        type: boolean
+        default: true
 
 permissions:
   contents: read # este workflow solo lee el repositorio
+
+# Si GitHub lanza dos ejecuciones a la vez (por retrasos), que vayan una detrás de otra.
+concurrency:
+  group: avisos
+  cancel-in-progress: false
 
 jobs:
   avisar:
     runs-on: ubuntu-latest
     env:
+      MODO: ${{ inputs.modo || 'auto' }}
       MENU_AVISOS: ${{ vars.MENU_AVISOS }}
       URL_WEB: ${{ vars.URL_WEB || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      # GitHub a veces retrasa mucho las ejecuciones programadas, y una ejecución tardía podría
+      # llegar después de otra. En modo "auto" solo se envía un aviso al día: lo apuntamos en la
+      # caché de GitHub Actions con la fecha de hoy.
+      - name: Fecha de hoy en Madrid
+        id: hoy
+        run: echo "fecha=$(TZ=Europe/Madrid date +%F)" >> "$GITHUB_OUTPUT"
+      - name: ¿Ya se ha enviado el aviso de hoy?
+        id: marca
+        if: env.MODO == 'auto'
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .aviso-hecho
+          key: aviso-${{ steps.hoy.outputs.fecha }}
+          lookup-only: true
+      - name: Ya enviado
+        if: steps.marca.outputs.cache-hit == 'true'
+        run: echo "El aviso de hoy ya se envió en una ejecución anterior. No se envía otra vez."
+
+      - if: steps.marca.outputs.cache-hit != 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - if: steps.marca.outputs.cache-hit != 'true'
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install -r requirements.txt
+      - if: steps.marca.outputs.cache-hit != 'true'
+        run: pip install -r requirements.txt
       - name: Enviar el aviso
+        if: steps.marca.outputs.cache-hit != 'true'
         run: python -m comedor avisar "$MODO" ${FECHA:+--fecha "$FECHA"}
         env: # los secretos solo llegan a este paso
-          MODO: ${{ inputs.modo || 'auto' }}
           FECHA: ${{ inputs.fecha }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          # Con "enviar" desactivado, sin token: el mensaje solo se muestra en el registro.
+          TELEGRAM_BOT_TOKEN: ${{ (github.event_name == 'workflow_dispatch' && !inputs.enviar) && '' || secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - name: Apuntar que el aviso de hoy ya está hecho
+        if: env.MODO == 'auto' && steps.marca.outputs.cache-hit != 'true'
+        run: date -u > .aviso-hecho
+      - if: env.MODO == 'auto' && steps.marca.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .aviso-hecho
+          key: aviso-${{ steps.hoy.outputs.fecha }}
