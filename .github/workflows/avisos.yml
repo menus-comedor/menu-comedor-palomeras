@@ -1,6 +1,6 @@
 # Avisos por Telegram:
-#   - domingo por la tarde: el menú de toda la semana
-#   - de lunes a jueves por la tarde: lo que comen mañana y qué evitar en la cena
+#   - domingo: el menú de toda la semana
+#   - de lunes a jueves: lo que comen mañana y qué evitar en la cena
 #
 # Las ejecuciones programadas aparecen a nombre de quien modificó este fichero por última vez.
 # Usa una cuenta dedicada (aquí, menus-comedor-bot) si no quieres que aparezca tu usuario.
@@ -8,9 +8,12 @@ name: Avisos por Telegram
 
 on:
   schedule:
-    # 16:23 UTC (18:23 en Madrid en verano, 17:23 en invierno), de domingo a jueves.
-    # Evitamos las horas en punto: GitHub va más cargado y puede retrasar o saltarse ejecuciones.
-    - cron: "23 16 * * 0-4"
+    # GitHub puede retrasar horas (o saltarse) las ejecuciones programadas, así que lo intentamos
+    # tres veces al día, de domingo a jueves. La primera que se ejecute envía el aviso y las
+    # demás ven que ya está enviado (ver más abajo).
+    # Horas en UTC: 10:17, 13:17 y 16:17 = 11:17, 14:17 y 17:17 en Madrid en invierno
+    # (12:17, 15:17 y 18:17 en verano). Evitamos las horas en punto, que van más cargadas.
+    - cron: "17 10,13,16 * * 0-4"
   workflow_dispatch:
     inputs:
       modo:
