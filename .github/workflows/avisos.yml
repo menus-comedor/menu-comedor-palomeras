@@ -72,11 +72,15 @@ jobs:
         run: pip install -r requirements.txt
       - name: Enviar el aviso
         if: steps.marca.outputs.cache-hit != 'true'
-        run: python -m comedor avisar "$MODO" ${FECHA:+--fecha "$FECHA"}
+        run: |
+          if [ "$SOLO_MOSTRAR" = "true" ]; then
+            unset TELEGRAM_BOT_TOKEN  # sin token, el mensaje solo se muestra en el registro
+          fi
+          python -m comedor avisar "$MODO" ${FECHA:+--fecha "$FECHA"}
         env: # los secretos solo llegan a este paso
           FECHA: ${{ inputs.fecha }}
-          # Con "enviar" desactivado, sin token: el mensaje solo se muestra en el registro.
-          TELEGRAM_BOT_TOKEN: ${{ (github.event_name == 'workflow_dispatch' && !inputs.enviar) && '' || secrets.TELEGRAM_BOT_TOKEN }}
+          SOLO_MOSTRAR: ${{ github.event_name == 'workflow_dispatch' && inputs.enviar == false }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
       - name: Apuntar que el aviso de hoy ya está hecho
