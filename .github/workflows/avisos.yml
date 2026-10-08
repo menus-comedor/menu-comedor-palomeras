@@ -8,12 +8,12 @@ name: Avisos por Telegram
 
 on:
   schedule:
-    # GitHub puede retrasar horas (o saltarse) las ejecuciones programadas, así que lo intentamos
-    # tres veces al día, de domingo a jueves. La primera que se ejecute envía el aviso y las
-    # demás ven que ya está enviado (ver más abajo).
-    # Horas en UTC: 10:17, 13:17 y 16:17 = 11:17, 14:17 y 17:17 en Madrid en invierno
-    # (12:17, 15:17 y 18:17 en verano). Evitamos las horas en punto, que van más cargadas.
-    - cron: "17 10,13,16 * * 0-4"
+    # El aviso lo lanza a las 15:15 (hora de Madrid) un temporizador externo (cron-job.org)
+    # a través de la API de GitHub, porque las tareas programadas de GitHub pueden retrasarse
+    # horas o no ejecutarse. Estos dos intentos son solo de respaldo, más tarde: si el aviso
+    # ya se envió, no hacen nada (ver más abajo).
+    # Horas en UTC: 15:17 y 18:17 = 16:17 y 19:17 en Madrid en invierno (17:17 y 20:17 en verano).
+    - cron: "17 15,18 * * 0-4"
   workflow_dispatch:
     inputs:
       modo:

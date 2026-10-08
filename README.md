@@ -12,7 +12,7 @@ Este proyecto lo convierte, sin que tengas que hacer nada cada mes, en:
 - **Avisos en un canal público de Telegram** al que cualquier familia puede unirse (con el menú orientativo):
   - **Domingo:** el menú de toda la semana, para planificar la compra.
   - **De lunes a jueves:** lo que comen mañana y qué conviene evitar en la cena.
-  - Llegan normalmente hacia mediodía (ver "Horarios de los avisos").
+  - Llegan a las 15:15 (ver "Horarios de los avisos").
 
 ```
 🍽 Mañana (mié 7) en el comedor:
@@ -44,9 +44,9 @@ Del 27 al 7 de cada mes, cada mañana, y el resto del mes, los lunes (GitHub Act
      sin-huevo.ics…) y los publica en GitHub Pages.
   4. Si hay mes nuevo del menú orientativo, avisa por Telegram.
 
-De domingo a jueves, tres intentos al día (GitHub Actions)
+De domingo a jueves a las 15:15 (cron-job.org lanza el workflow; GitHub reintenta más tarde)
   5. Envía el aviso del día (o de la semana, los domingos) por Telegram.
-     Solo se envía uno al día: el primer intento que GitHub ejecute.
+     Solo se envía uno al día, aunque se lance varias veces.
 ```
 
 Cada plato se clasifica en grupos (pescado, huevo, carne, legumbres, pasta, arroz, patata)
@@ -176,14 +176,35 @@ retraso". Por eso se comprueba a diario del 27 al 7 y los lunes el resto del mes
 algo). Se cambia en [`.github/workflows/actualizar.yml`](.github/workflows/actualizar.yml).
 Si tienes prisa, **Actions → Actualizar menú → Run workflow** lo comprueba al momento.
 
-**Horarios de los avisos:** GitHub no garantiza la hora de las tareas programadas: a veces las
-retrasa varias horas o se las salta. Por eso el aviso se intenta tres veces al día (11:17, 14:17 y
-17:17 en Madrid en invierno; una hora más tarde en verano) y solo se envía en el primer intento que
-llegue a ejecutarse; lo normal es recibirlo hacia mediodía. Para cambiar las horas, edita la línea
-`cron` de [`.github/workflows/avisos.yml`](.github/workflows/avisos.yml). La hora está en UTC
-(en Madrid: +1 h en invierno, +2 h en verano). [crontab.guru](https://crontab.guru) ayuda a escribirla.
-Si necesitas una hora exacta, un servicio externo de cron (p. ej. cron-job.org) puede lanzar el
-workflow a mano a través de la API de GitHub, que sí arranca al momento.
+**Horarios de los avisos:** GitHub no garantiza la hora de las tareas programadas: en este
+repositorio las ha retrasado varias horas o no las ha ejecutado. Por eso el aviso lo lanza un
+temporizador externo gratuito, [cron-job.org](https://cron-job.org), de domingo a jueves a las 15:15
+(hora de Madrid, también en verano). GitHub lo vuelve a intentar más tarde como respaldo (línea
+`cron` de [`.github/workflows/avisos.yml`](.github/workflows/avisos.yml), en UTC), y solo se envía
+un aviso al día.
+
+Para montar el temporizador en tu copia:
+
+1. Añade una cuenta bot como miembro de tu organización y, con esa cuenta, crea una clave
+   *fine-grained* (Settings → Developer settings → Personal access tokens → Fine-grained) con
+   *Resource owner* tu organización, solo tu repositorio y un único permiso: **Actions: Read and
+   write**. Con esa clave solo se pueden lanzar workflows: no puede cambiar el código ni leer
+   secretos. Si la organización lo pide, apruébala en sus ajustes.
+2. En cron-job.org, pon la zona horaria `Europe/Madrid` y crea un cronjob:
+   - **URL:** `https://api.github.com/repos/TU-ORGANIZACION/NOMBRE-DEL-REPO/actions/workflows/avisos.yml/dispatches`
+   - **Horario:** de domingo a jueves, a la hora que quieras.
+   - **Método:** `POST`. **Cabeceras:** `Accept: application/vnd.github+json`,
+     `Authorization: Bearer TU_CLAVE`, `X-GitHub-Api-Version: 2022-11-28`,
+     `Content-Type: application/json`.
+   - **Cuerpo:** `{"ref":"main","inputs":{"modo":"auto"}}`
+   - Activa los avisos por email si falla.
+3. Pulsa "Test run": la respuesta correcta es `204 No Content`.
+4. Mueve los intentos de respaldo de `avisos.yml` a después de tu hora.
+
+**Renovación:** la clave caduca al año (GitHub y cron-job.org te avisarán por email). Crea una
+nueva igual, cámbiala en la cabecera `Authorization` del cronjob y, de paso, actualiza
+`X-GitHub-Api-Version` a la versión actual de la API de GitHub (la de `2022-11-28` deja de
+funcionar en marzo de 2028).
 
 **¿Y WhatsApp?** Enviar mensajes automáticos a WhatsApp requiere la API de empresas (o servicios de pago
 como Twilio), así que hemos elegido Telegram, que es gratis y se configura en cinco minutos.
