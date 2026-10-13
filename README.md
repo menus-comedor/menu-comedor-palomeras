@@ -181,7 +181,9 @@ repositorio las ha retrasado varias horas o no las ha ejecutado. Por eso el avis
 temporizador externo gratuito, [cron-job.org](https://cron-job.org), de domingo a jueves a las 15:15
 (hora de Madrid, también en verano). GitHub lo vuelve a intentar más tarde como respaldo (línea
 `cron` de [`.github/workflows/avisos.yml`](.github/workflows/avisos.yml), en UTC), y solo se envía
-un aviso al día.
+un aviso al día. Además, los avisos automáticos solo se envían entre las 14:00 y las 22:00 (Madrid):
+si GitHub retrasa un intento hasta la noche, no hace nada (se cambia con `HORA_DESDE` y
+`HORA_HASTA` en `avisos.yml`).
 
 Para montar el temporizador en tu copia:
 
