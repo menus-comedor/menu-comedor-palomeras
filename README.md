@@ -42,11 +42,13 @@ Del 27 al 7 de cada mes, cada mañana, y el resto del mes, los lunes (GitHub Act
   2. Los lee con pdfplumber y guarda cada mes en datos/MENU/AAAA-MM.json.
   3. Si ha cambiado algo, genera la web y un calendario por menú (orientativo.ics,
      sin-huevo.ics…) y los publica en GitHub Pages.
-  4. Si hay mes nuevo del menú orientativo, avisa por Telegram.
+  4. Si hay mes nuevo del menú orientativo, avisa por Telegram y lanza el aviso del día
+     (por si estaba esperando a que se publicara el menú).
 
 De domingo a jueves a las 15:15 (cron-job.org lanza el workflow; GitHub reintenta más tarde)
   5. Envía el aviso del día (o de la semana, los domingos) por Telegram.
-     Solo se envía uno al día, aunque se lance varias veces.
+     Solo se envía uno al día, aunque se lance varias veces. Si el menú de esos días aún no
+     está publicado (cambio de mes), no se envía nada y se reintenta más tarde.
 ```
 
 Cada plato se clasifica en grupos (pescado, huevo, carne, legumbres, pasta, arroz, patata)
