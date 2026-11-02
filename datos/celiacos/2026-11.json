@@ -1,0 +1,584 @@
+{
+  "mes": "2026-11",
+  "titulo": "Noviembre 2026",
+  "dias": [
+    {
+      "fecha": "2026-11-02",
+      "festivo": true,
+      "nota": "FIESTA",
+      "primero": null,
+      "segundo": null,
+      "otros_platos": [],
+      "postre": null,
+      "pan": null,
+      "kcal": 0
+    },
+    {
+      "fecha": "2026-11-03",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Garbanzos guisados con verduras",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Tortilla de atún con lechuga y manzana",
+        "alergenos": [
+          "leche",
+          "huevo",
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 636
+    },
+    {
+      "fecha": "2026-11-04",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz rehogado con verduritas",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Merluza a la gallega con patata cocida",
+        "alergenos": [
+          "pescado"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 584
+    },
+    {
+      "fecha": "2026-11-05",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Brócoli de Flory",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Espaguetis sin gluten boloñesa",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 599
+    },
+    {
+      "fecha": "2026-11-06",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías blancas con chorizo",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Abadejo al horno con lechuga y zanahoria",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 720
+    },
+    {
+      "fecha": "2026-11-09",
+      "festivo": true,
+      "nota": "FIESTA",
+      "primero": null,
+      "segundo": null,
+      "otros_platos": [],
+      "postre": null,
+      "pan": null,
+      "kcal": 0
+    },
+    {
+      "fecha": "2026-11-10",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Crema de verduras ecológicas (puerro repollo, zanahoria)",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Cinta lomo adobada con lechuga y zanahoria",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Yogur natural",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 668
+    },
+    {
+      "fecha": "2026-11-11",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Espaguetis al pesto sin gluten",
+        "alergenos": [
+          "leche",
+          "frutos secos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Filete de pollo a la plancha con lechuga y tomate",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 637
+    },
+    {
+      "fecha": "2026-11-12",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Coliflor rehogada con ajo y pimentón",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Salteado de garbanzos, verduras y huevo cocido",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 544
+    },
+    {
+      "fecha": "2026-11-13",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz blanco con salsa de tomate",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Dorado al horno con lechuga y zanahoria",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 546
+    },
+    {
+      "fecha": "2026-11-16",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías verdes con tomate",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Merluza al horno con ensalada lechuga, zanahoria",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 493
+    },
+    {
+      "fecha": "2026-11-17",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Sopa de cocido con fideos sin gluten",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Cocido vegetal",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 639
+    },
+    {
+      "fecha": "2026-11-18",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz con champiñones",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Tortilla de patata",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Queso fresco",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 707
+    },
+    {
+      "fecha": "2026-11-19",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías pintas guisadas con chorizo",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Fogonero al horno con lechuga y maíz",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 714
+    },
+    {
+      "fecha": "2026-11-20",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Crema de calabaza ecológica",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Hamburguesa de ternera con arroz integral",
+        "alergenos": [
+          "huevo",
+          "soja",
+          "apio",
+          "mostaza"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 612
+    },
+    {
+      "fecha": "2026-11-23",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Coliflor con ajo perejil",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Cinta de lomo adobada plancha con lechuga",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 674
+    },
+    {
+      "fecha": "2026-11-24",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías blancas estofadas con verduras",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Merluza al horno con lechuga, tomate y zanahoria",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 585
+    },
+    {
+      "fecha": "2026-11-25",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Macarrones sin gluten con tomate",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "segundo": {
+        "nombre": "Salteado de verduras con garbanzos y pollo",
+        "alergenos": []
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Yogur natural",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 635
+    },
+    {
+      "fecha": "2026-11-26",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías blancas con chorizo",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Huevos revueltos con pavo lechuga y maíz",
+        "alergenos": [
+          "huevo",
+          "soja",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 751
+    },
+    {
+      "fecha": "2026-11-27",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz tres delicias",
+        "alergenos": [
+          "huevo",
+          "soja"
+        ]
+      },
+      "segundo": {
+        "nombre": "Salmón horno con lechuga y maíz",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 624
+    },
+    {
+      "fecha": "2026-11-30",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Brócoli rehogado con ajo y cebolla",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Espaguetis sin gluten boloñesa",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan sin gluten",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "kcal": 613
+    }
+  ],
+  "pdf_sha256": "a9a6ecc14095126b49428efbb97e39cc880aee5c633ae6cfce685583418edab3"
+}

@@ -1,0 +1,639 @@
+{
+  "mes": "2026-11",
+  "titulo": "Noviembre 2026",
+  "dias": [
+    {
+      "fecha": "2026-11-02",
+      "festivo": true,
+      "nota": "FIESTA",
+      "primero": null,
+      "segundo": null,
+      "otros_platos": [],
+      "postre": null,
+      "pan": null,
+      "kcal": 0
+    },
+    {
+      "fecha": "2026-11-03",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Lentejas guisadas con verduras",
+        "alergenos": [
+          "gluten"
+        ]
+      },
+      "segundo": {
+        "nombre": "Tortilla de atún con lechuga y manzana",
+        "alergenos": [
+          "leche",
+          "huevo",
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 658
+    },
+    {
+      "fecha": "2026-11-04",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz rehogado con verduritas",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Merluza a la gallega con patata cocida",
+        "alergenos": [
+          "pescado"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 584
+    },
+    {
+      "fecha": "2026-11-05",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Brócoli de Flory",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Pasta con boloñesa vegetal",
+        "alergenos": [
+          "gluten",
+          "huevo",
+          "soja",
+          "mostaza"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 599
+    },
+    {
+      "fecha": "2026-11-06",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías blancas estofadas con verduras",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Abadejo al horno con lechuga y zanahoria",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 585
+    },
+    {
+      "fecha": "2026-11-09",
+      "festivo": true,
+      "nota": "FIESTA",
+      "primero": null,
+      "segundo": null,
+      "otros_platos": [],
+      "postre": null,
+      "pan": null,
+      "kcal": 0
+    },
+    {
+      "fecha": "2026-11-10",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Crema de verduras ecológicas (puerro repollo, zanahoria)",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Filete de pollo a la plancha con ensalada de lechuga, tomate y",
+        "alergenos": []
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Yogur natural",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan integral Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 557
+    },
+    {
+      "fecha": "2026-11-11",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Pasta integral al pesto",
+        "alergenos": [
+          "gluten",
+          "leche",
+          "huevo",
+          "soja",
+          "frutos secos",
+          "mostaza"
+        ]
+      },
+      "segundo": {
+        "nombre": "Filete de pollo a la plancha con lechuga y tomate",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 637
+    },
+    {
+      "fecha": "2026-11-12",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Coliflor rehogada con ajo y pimentón",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Salteado de garbanzos, verduras y huevo cocido",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 544
+    },
+    {
+      "fecha": "2026-11-13",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz blanco con salsa de tomate",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Dorado al horno con lechuga y zanahoria",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 546
+    },
+    {
+      "fecha": "2026-11-16",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías verdes con tomate",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Boquerones en tempura con lechuga y zanahoria",
+        "alergenos": [
+          "gluten",
+          "leche",
+          "huevo",
+          "pescado",
+          "crustáceos",
+          "moluscos",
+          "soja",
+          "mostaza",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 568
+    },
+    {
+      "fecha": "2026-11-17",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Sopa de fideos",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "mostaza"
+        ]
+      },
+      "segundo": {
+        "nombre": "Cocido vegetal",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 653
+    },
+    {
+      "fecha": "2026-11-18",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz con champiñones",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Tortilla de patata",
+        "alergenos": [
+          "huevo"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Queso fresco",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 707
+    },
+    {
+      "fecha": "2026-11-19",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías pintas estofadas con verduras",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Fogonero al horno con lechuga y maíz",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 579
+    },
+    {
+      "fecha": "2026-11-20",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Crema de calabaza ecológica",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Hamburguesa de ternera con arroz integral",
+        "alergenos": [
+          "huevo",
+          "soja",
+          "apio",
+          "mostaza"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 612
+    },
+    {
+      "fecha": "2026-11-23",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Coliflor con ajo perejil",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Filete de pavo a la plancha con ensalada de lechuga y tomate",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 564
+    },
+    {
+      "fecha": "2026-11-24",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Lentejas guisadas con verduras",
+        "alergenos": [
+          "gluten"
+        ]
+      },
+      "segundo": {
+        "nombre": "Merluza al horno con lechuga, tomate y zanahoria",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 625
+    },
+    {
+      "fecha": "2026-11-25",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Pasta integral con tomate y orégano",
+        "alergenos": [
+          "gluten",
+          "huevo",
+          "soja",
+          "mostaza"
+        ]
+      },
+      "segundo": {
+        "nombre": "Salteado de verduras con garbanzos y pollo",
+        "alergenos": []
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Yogur natural",
+        "alergenos": [
+          "leche"
+        ]
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 635
+    },
+    {
+      "fecha": "2026-11-26",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Judías blancas estofadas con verduras",
+        "alergenos": [
+          "sulfitos"
+        ]
+      },
+      "segundo": {
+        "nombre": "Huevos revueltos con pavo lechuga y maíz",
+        "alergenos": [
+          "huevo",
+          "soja",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan integral Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 616
+    },
+    {
+      "fecha": "2026-11-27",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Arroz rehogado con verduras",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Salmón horno con lechuga y maíz",
+        "alergenos": [
+          "pescado",
+          "sulfitos"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 582
+    },
+    {
+      "fecha": "2026-11-30",
+      "festivo": false,
+      "nota": "",
+      "primero": {
+        "nombre": "Brócoli rehogado con ajo y cebolla",
+        "alergenos": []
+      },
+      "segundo": {
+        "nombre": "Espaguetis boloñesa con soja texturizada",
+        "alergenos": [
+          "gluten",
+          "huevo",
+          "soja",
+          "mostaza"
+        ]
+      },
+      "otros_platos": [],
+      "postre": {
+        "nombre": "Fruta de temporada",
+        "alergenos": []
+      },
+      "pan": {
+        "nombre": "Pan Madrid",
+        "alergenos": [
+          "gluten",
+          "soja",
+          "sésamo"
+        ]
+      },
+      "kcal": 613
+    }
+  ],
+  "pdf_sha256": "493d0751cd9dc8fc09d88cdb11ded2c04af2f6ac293162088545e01de1e2a902"
+}
