@@ -35,9 +35,11 @@ def mensaje_semana(por_fecha: dict, lunes: date, url_web: str = "") -> str | Non
     dias = [por_fecha[f.isoformat()] for f in semana if f.isoformat() in por_fecha]
     titulo = f"🍽 <b>Comedor: semana del {lunes.day} {MESES[lunes.month - 1]}</b>"
     if not dias:
-        return (f"{titulo}\n\nTodavía no hay menú publicado para esta semana "
-                f"(o no hay cole). Lo volveré a comprobar cada día.")
+        return None
     cuerpo = "\n\n".join(_linea_dia(d) for d in dias)
+    if len(dias) < len(semana):
+        # Semana a caballo entre dos meses, con el PDF del mes siguiente aún sin publicar.
+        cuerpo += "\n\n<i>El menú del resto de la semana aún no está publicado.</i>"
     pie = f'\n\n<a href="{url_web}">Ver el menú completo</a>' if url_web else ""
     return f"{titulo}\n\n{cuerpo}{pie}"
 

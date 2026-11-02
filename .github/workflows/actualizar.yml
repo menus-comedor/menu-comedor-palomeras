@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: write # para guardar datos/ en el repositorio
+  actions: write # para lanzar el aviso de Telegram cuando hay menú nuevo
   pages: write
   id-token: write
 
@@ -79,3 +80,13 @@ jobs:
       - id: desplegar
         if: steps.guardar.outputs.cambiado == 'true' || github.event_name != 'schedule'
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+      # Si hay menú nuevo (p. ej. el del mes siguiente), lanzamos ya el aviso de Telegram por si
+      # el de hoy estaba esperando a que se publicara. Si ya se envió hoy, o no es buena hora
+      # (fuera de 14-22 h en Madrid), el workflow de avisos no hace nada.
+      - name: Lanzar el aviso de Telegram
+        if: steps.guardar.outputs.cambiado == 'true'
+        continue-on-error: true # si falla, que no afecte a la web ya publicada
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run avisos.yml --repo "$GITHUB_REPOSITORY" --ref main -f modo=auto

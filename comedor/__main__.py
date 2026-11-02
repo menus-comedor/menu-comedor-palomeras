@@ -45,6 +45,10 @@ URL_WEB = os.environ.get("URL_WEB", "")
 CANAL = os.environ.get("TELEGRAM_CANAL", "").lstrip("@")
 ZONA = ZoneInfo("Europe/Madrid")
 
+# Código de salida de "avisar" cuando aún no está publicado el menú de esos días: el workflow
+# no da el aviso por hecho y lo vuelve a intentar más tarde (p. ej. tras el cambio de mes).
+SIN_MENU = 3
+
 
 def todos_los_dias(clave: str):
     dias = []
@@ -150,11 +154,22 @@ def cmd_avisar(args) -> None:
 
     if modo == "semana":
         lunes = hoy + timedelta(days=(7 - hoy.weekday()) % 7)  # el próximo lunes (u hoy si es lunes)
-        texto = avisos.mensaje_semana(por_fecha, lunes, URL_WEB)
-    elif modo == "manana":
-        texto = avisos.mensaje_dia(por_fecha, hoy + timedelta(days=1), "mañana")
+        fechas = [lunes + timedelta(days=i) for i in range(5)]
     else:
-        texto = avisos.mensaje_dia(por_fecha, hoy, "hoy")
+        fechas = [hoy + timedelta(days=1) if modo == "manana" else hoy]
+
+    # Días de cole (lunes a viernes) de los que todavía no hay menú: no es lo mismo que un festivo.
+    laborables = [f for f in fechas if f.weekday() < 5]
+    if laborables and not any(f.isoformat() in por_fecha for f in laborables):
+        print(f"Todavía no está publicado el menú del {laborables[0]}: lo intentaremos más tarde.")
+        sys.exit(SIN_MENU)
+
+    if modo == "semana":
+        texto = avisos.mensaje_semana(por_fecha, fechas[0], URL_WEB)
+    elif modo == "manana":
+        texto = avisos.mensaje_dia(por_fecha, fechas[0], "mañana")
+    else:
+        texto = avisos.mensaje_dia(por_fecha, fechas[0], "hoy")
 
     if texto:
         avisos.enviar_telegram(texto)

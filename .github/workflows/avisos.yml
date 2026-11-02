@@ -84,12 +84,23 @@ jobs:
       - if: steps.marca.outputs.cache-hit != 'true' && steps.hoy.outputs.fuera_de_hora != 'true'
         run: pip install -r requirements.txt
       - name: Enviar el aviso
+        id: enviar
         if: steps.marca.outputs.cache-hit != 'true' && steps.hoy.outputs.fuera_de_hora != 'true'
         run: |
           if [ "$SOLO_MOSTRAR" = "true" ]; then
             unset TELEGRAM_BOT_TOKEN  # sin token, el mensaje solo se muestra en el registro
           fi
+          # Código 3: aún no está publicado el menú de esos días (p. ej. al cambiar de mes).
+          # No es un error, pero tampoco damos el aviso por hecho: lo reintentará otra ejecución.
+          set +e
           python -m comedor avisar "$MODO" ${FECHA:+--fecha "$FECHA"}
+          codigo=$?
+          set -e
+          if [ "$codigo" = "3" ]; then
+            echo "pendiente=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          exit "$codigo"
         env: # los secretos solo llegan a este paso
           FECHA: ${{ inputs.fecha }}
           SOLO_MOSTRAR: ${{ github.event_name == 'workflow_dispatch' && inputs.enviar == false }}
@@ -97,9 +108,9 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
       - name: Apuntar que el aviso de hoy ya está hecho
-        if: env.MODO == 'auto' && steps.marca.outputs.cache-hit != 'true' && steps.hoy.outputs.fuera_de_hora != 'true'
+        if: env.MODO == 'auto' && steps.marca.outputs.cache-hit != 'true' && steps.hoy.outputs.fuera_de_hora != 'true' && steps.enviar.outputs.pendiente != 'true'
         run: date -u > .aviso-hecho
-      - if: env.MODO == 'auto' && steps.marca.outputs.cache-hit != 'true' && steps.hoy.outputs.fuera_de_hora != 'true'
+      - if: env.MODO == 'auto' && steps.marca.outputs.cache-hit != 'true' && steps.hoy.outputs.fuera_de_hora != 'true' && steps.enviar.outputs.pendiente != 'true'
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .aviso-hecho
