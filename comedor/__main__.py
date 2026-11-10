@@ -4,6 +4,7 @@
                                      descarga los PDF, los lee y guarda datos/MENU/AAAA-MM.json
     python -m comedor publicar       genera la web y los calendarios en sitio/
     python -m comedor avisar [auto|semana|manana|hoy] [--fecha AAAA-MM-DD]
+    MENSAJE="texto" python -m comedor avisar mensaje   envía un aviso libre (p. ej. del colegio)
 
 La lista de menús está en comedor/menus.py.
 
@@ -18,6 +19,7 @@ Variables de entorno (todas opcionales):
 """
 
 import argparse
+from html import escape
 import hashlib
 import json
 import os
@@ -142,6 +144,14 @@ def cmd_publicar(_args) -> None:
 
 
 def cmd_avisar(args) -> None:
+    if args.modo == "mensaje":
+        # Aviso libre, tal cual (se escapa el HTML para que Telegram lo muestre como texto).
+        texto = os.environ.get("MENSAJE", "").replace("\\n", "\n").strip()
+        if not texto:
+            sys.exit("Falta el texto del mensaje (variable MENSAJE).")
+        avisos.enviar_telegram(escape(texto))
+        return
+
     hoy = date.fromisoformat(args.fecha) if args.fecha else datetime.now(ZONA).date()
     por_fecha = {d.fecha: d for d in todos_los_dias(MENU_AVISOS)}
     modo = args.modo
@@ -191,7 +201,7 @@ def main() -> None:
     sub.add_parser("publicar", help="genera la web y los calendarios").set_defaults(func=cmd_publicar)
 
     v = sub.add_parser("avisar", help="envía el aviso por Telegram")
-    v.add_argument("modo", nargs="?", default="auto", choices=["auto", "semana", "manana", "hoy"])
+    v.add_argument("modo", nargs="?", default="auto", choices=["auto", "semana", "manana", "hoy", "mensaje"])
     v.add_argument("--fecha", help="hacer como si hoy fuera esta fecha (para probar)")
     v.set_defaults(func=cmd_avisar)
 
