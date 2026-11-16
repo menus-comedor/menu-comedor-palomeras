@@ -26,6 +26,7 @@ import os
 import shutil
 import sys
 import tempfile
+import time
 import urllib.request
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -59,10 +60,23 @@ def todos_los_dias(clave: str):
     return dias
 
 
-def descargar(url: str, destino: Path) -> None:
+def descargar(url: str, destino: Path, intentos: int = 3, espera: int = 30) -> None:
+    """Descarga un PDF. Si la web del colegio falla o no devuelve un PDF, reintenta."""
     peticion = urllib.request.Request(url, headers={"User-Agent": "menu-comedor (GitHub Actions)"})
-    with urllib.request.urlopen(peticion, timeout=60) as r, open(destino, "wb") as f:
-        shutil.copyfileobj(r, f)
+    for intento in range(1, intentos + 1):
+        try:
+            with urllib.request.urlopen(peticion, timeout=60) as r:
+                contenido = r.read()
+            if contenido.startswith(b"%PDF"):
+                destino.write_bytes(contenido)
+                return
+            problema = f"no ha devuelto un PDF (empieza por {contenido[:20]!r})"
+        except OSError as e:
+            problema = f"error de conexión: {e}"
+        if intento < intentos:
+            print(f"    intento {intento}: la web del colegio {problema}; reintento en {espera} s")
+            time.sleep(espera)
+    raise RuntimeError(f"la web del colegio {problema} tras {intentos} intentos (¿está caída?)")
 
 
 def actualizar_menu(clave: str, nombre: str, pdf: Path, avisar: bool) -> bool:
